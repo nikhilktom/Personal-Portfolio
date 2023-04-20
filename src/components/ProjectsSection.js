@@ -1,4 +1,3 @@
-import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { Box, Heading } from "@chakra-ui/react";
 import Card from "./Card";
@@ -6,54 +5,63 @@ import Card from "./Card";
 const projects = [
   {
     title: "Little Lemon Restaurant",
-    description:
-      "Little Lemon Restaurant is a responsive website built with React and designed using Figma, featuring a table reservation system",
-    getImageSrc: () => require("../images/photo1.jpg"),
+    description: "Little Lemon website is a responsive platform designed using Figma and coded with React, allowing restaurant customers to easily make table reservations.",
+    images: [
+      require("../images/hero.png"),
+    ],
+    githubLink: "https://github.com/nikhilktom/Little-Lemon.git",
   },
   {
-    title: "React Infinite Scroll",
-    description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 FPS and fully implemented in JS land 🔥️",
-    getImageSrc: () => require("../images/photo2.jpg"),
-  },
-  {
-    title: "Photo Gallery",
-    description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
-    getImageSrc: () => require("../images/photo3.jpg"),
-  },
-  {
-    title: "Event planner",
-    description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
-    getImageSrc: () => require("../images/photo4.jpg"),
+    title: "Personal Portfolio",
+    description: "Ta-da! Here's the project that's responsible for all the eye-catching animations, mind-blowing designs, and unparalleled coding skills you're seeing on this very website!",
+    images: [
+      require("/Users/nikki/personal-portfolio/src/images/portfolio.png"),
+
+    ],
+    githubLink: "https://github.com/nikhilktom/Personal-Portfolio.git",
   },
 ];
 
 const ProjectsSection = () => {
+
   return (
     <FullScreenSection
-      backgroundColor="#0f1626"
+      backgroundColor="#1d2b4b"
+      position="relative"
+      borderRadius="xl"
       isDarkBackground
       p={8}
-      alignItems="flex-start"
-      spacing={8}
+      spacing={10}
     >
-      <Heading as="h1" id="projects-section">
-        Featured Projects
-      </Heading>
+     <Heading
+  as="h1"
+  id="projects-section"
+  marginRight={{ base: "0px", md: "600px" }}
+  marginBottom={{ base: "50px", md: "80px" }}
+>
+  Projects
+</Heading>
       <Box
         display="grid"
         gridTemplateColumns="repeat(2,minmax(0,1fr))"
-        gridGap={8}
+
+        gridGap={14}
       >
         {projects.map((project) => (
           <Card
             key={project.title}
             title={project.title}
             description={project.description}
-            imageSrc={project.getImageSrc()}
-          />
+            imageSrc={project.images}
+            githubLink={project.githubLink}
+            onMouseEnter={(e) => {
+              e.target.style.filter = "brightness(0.6)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.filter = "brightness(1)";
+            }}
+          >
+          </Card>
         ))}
       </Box>
     </FullScreenSection>

@@ -12,7 +12,7 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#0f1626"
+    backgroundColor="#1d2b4b"
   >
     <VStack>
       <Avatar src={myPhoto}/>

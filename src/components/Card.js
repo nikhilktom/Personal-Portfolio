@@ -1,32 +1,45 @@
-import { Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 
-const Card = ({ title, description, imageSrc }) => {
+const Card = ({ title, description, imageSrc, githubLink, onMouseEnter, onMouseLeave, children }) => {
   return (
-    <VStack
-    borderRadius='8px'
-    backgroundColor='white'
-    color='black'
-  >
-    <Image
-      src={imageSrc}
-      borderRadius='8px'
-      />
-    <VStack
-      fontSize='xs'
-      align='left'
-      padding='2'
+    <Box
+      position="relative"
+      borderRadius="xl"
+      boxShadow="lg"
+      transition="transform 0.3s"
+      overflow="hidden"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      _hover={{ transform: "scale(1.05)" }}
+      bg="#1d2b4b"
+      borderWidth="1px"
+      borderColor="#1d2b4"
     >
-      <Heading>{title}</Heading>
-      <Text>{description}</Text>
-      <HStack>
-        <Text>See more</Text>
-        <FontAwesomeIcon icon={faArrowRight} />
-      </HStack>
-    </VStack>
-  </VStack>
+      <Box
+        position="relative"
+        pb="48%"
+        backgroundSize="cover"
+        backgroundImage={`url(${imageSrc})`}
+        borderRadius="xl"
+      />
+      <Box p={6}>
+        <Heading size="md" mb={6} color="white">
+          {title}
+        </Heading>
+        <Text color="white" mb={6}>
+          {description}
+        </Text>
+        <Button
+          as="a"
+          href={githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          colorScheme="blue"
+        >
+          See Code
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

@@ -28,9 +28,10 @@ To build the website for production, run: npm run build
 This will create an optimized build of the website in the `build` directory.
 
 ## Screenshots
-Here are some screenshots of the Little Lemon Restaurant website:
+Here are some screenshots of the Portfolio website:
 
 ![Landing Page](https://github.com/nikhilktom/Personal-Portfolio/blob/061fc06de2e5eb67a2ea90d94dc7fdd601f3581b/src/images/portfolio.png)
+
 
 
 ## Contributing
